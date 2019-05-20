@@ -358,7 +358,7 @@ spec:
         component: core
     spec:
       containers:
-      - image: grafana/grafana:5.3.1
+      - image: grafana/grafana:5.4.3
         name: grafana-core
         imagePullPolicy: IfNotPresent
         # env:
@@ -386,6 +386,9 @@ spec:
                 key: admin-password
           - name: GF_AUTH_ANONYMOUS_ENABLED
             value: "false"
+            
+          - name: GF_INSTALL_PLUGINS
+            value: grafana-piechart-panel
           # - name: GF_AUTH_ANONYMOUS_ORG_ROLE
           #   value: Admin
           # does not really work, because of template variables in exported dashboards:
